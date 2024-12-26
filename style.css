@@ -1,0 +1,270 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    animation: gradientAnimation 8s infinite alternate;
+    overflow-x: hidden;
+    color: #333;
+}
+
+/* File Upload Container */
+.file-upload {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Custom File Label */
+.file-label {
+    display: inline-block;
+    background: linear-gradient(120deg, #66a6ff, #89f7fe);
+    color: white;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(102, 166, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.file-label:hover {
+    background: linear-gradient(120deg, #89f7fe, #a0c4ff);
+    box-shadow: 0 8px 20px rgba(137, 247, 254, 0.5);
+    transform: scale(1.05);
+}
+
+/* Inner Text Style */
+.file-text {
+    pointer-events: none;
+}
+
+/* File Input (Hidden) */
+input[type="file"] {
+    display: none;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    animation: gradientAnimation 15s infinite cubic-bezier(0.42, 0, 0.58, 1);
+    overflow-x: hidden;
+    color: #333;
+}
+
+
+
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    }
+    8.33% {
+        background: linear-gradient(120deg, #9ddcff, #8ec6ff);
+    }
+    16.66% {
+        background: linear-gradient(120deg, #a0c4ff, #89f7fe);
+    }
+    25% {
+        background: linear-gradient(120deg, #b8a1ff, #fdb0c0);
+    }
+    33.33% {
+        background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+    }
+    41.66% {
+        background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
+    }
+    50% {
+        background: linear-gradient(120deg, #b5e1ff, #85a8ff);
+    }
+    58.33% {
+        background: linear-gradient(120deg, #8de5ff, #72c4ff);
+    }
+    66.66% {
+        background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    }
+    75% {
+        background: linear-gradient(120deg, #8bc4fe, #7bb1ff);
+    }
+    83.33% {
+        background: linear-gradient(120deg, #a5b8ff, #d7f4ff);
+    }
+    91.66% {
+        background: linear-gradient(120deg, #c3e4ff, #8ec6ff);
+    }
+    100% {
+        background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    }
+}
+
+
+
+
+/* Enhanced Subtitle */
+.subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Enhanced Main Container */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Button Hover Effects */
+button {
+    margin-top: 10px;
+    padding: 12px 24px;
+    background-color: #66a6ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 166, 255, 0.4);
+}
+
+button:hover {
+    background-color: #89f7fe;
+    box-shadow: 0 6px 15px rgba(137, 247, 254, 0.5);
+    transform: scale(1.05);
+}
+
+/* Canvas Styling */
+canvas {
+    max-width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Caption Styling */
+.caption {
+    margin-top: 15px;
+    font-size: 1rem;
+    background: #f9f9f9;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: #555;
+}
+
+
+h1 {
+    font-size: 2.2rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Results Section */
+#results {
+    margin-top: 30px;
+}
+
+.image-results {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.image-section {
+    flex: 1;
+    text-align: center;
+}
+
+canvas {
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.caption {
+    margin-top: 10px;
+    font-size: 1rem;
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #66a6ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #89f7fe;
+}
+
+/* Loading Spinner */
+#loadingSpinner {
+    margin-top: 20px;
+}
+
+/* Particle Effects */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Particle Animation */
+.particle {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: particleMove 5s infinite ease-in-out;
+}
+
+@keyframes particleMove {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+}

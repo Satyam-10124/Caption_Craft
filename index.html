@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caption Craft</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles"></div> <!-- Particle background container -->
+
+    <div class="container">
+        <h1>Image Analysis</h1>
+        
+        <!-- Enhanced File Upload -->
+        <div class="file-upload">
+            <label for="imageInput" class="file-label">
+                <span class="file-text">Choose Image</span>
+                <input type="file" id="imageInput" accept="image/*" hidden>
+            </label>
+        </div>
+        
+        <p id="uploadNotification" style="color: green; font-weight: bold; display: none;">Image uploaded successfully!</p>
+        <button id="analyzeButton">Analyze</button>
+        
+        <div id="results">
+            <h2>Results</h2>
+            <div class="image-results">
+                <div class="image-section">
+                    <canvas id="uploadedCanvas"></canvas>
+                    <p id="uploadedCaption" class="caption">Your original image will appear here.</p>
+                </div>
+                <div class="image-section">
+                    <canvas id="processedCanvas"></canvas>
+                    <p id="processedCaption" class="caption">Processed image with detected objects will appear here.</p>
+                </div>
+            </div>
+            <button id="downloadButton">Download Image</button>
+        </div>
+        
+        <div id="loadingSpinner" style="display: none;">
+            <img src="spinner.gif" alt="Loading..." style="width: 50px;">
+            <p>Processing, please wait...</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
