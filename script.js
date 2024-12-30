@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 imageInput.addEventListener("change", () => {
     if (imageInput.files.length > 0) {
         uploadNotification.style.display = "block";
@@ -106,8 +105,12 @@ async function analyzeImage() {
                 arrayBuffer
             );
 
+            const captionText = captionResponse[0]?.generated_text || "No caption";
             uploadedCaption.textContent = "Uploaded Image: Original view.";
-            processedCaption.textContent = `Detected Image Caption: "${captionResponse[0]?.generated_text || "No caption"}"`;
+            processedCaption.textContent = `Detected Image Caption: "${captionText}"`;
+
+            // **Speak the caption using Web Speech API**
+            speakCaption(captionText);
 
             // Enable download button
             downloadButton.onclick = () => {
@@ -125,6 +128,17 @@ async function analyzeImage() {
     };
 
     reader.readAsDataURL(file);
+}
+
+// Web Speech API: Function to speak the detected caption
+function speakCaption(caption) {
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(caption);
+    utterance.lang = "en-US";
+    utterance.volume = 1; // Volume (0 to 1)
+    utterance.rate = 1; // Speech rate (0.1 to 10)
+    utterance.pitch = 1; // Pitch (0 to 2)
+    synth.speak(utterance);
 }
 
 analyzeButton.addEventListener("click", analyzeImage);
