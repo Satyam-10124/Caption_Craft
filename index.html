@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caption Craft</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="bot.png">
+    <title>Image API Integration</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="particles"></div> <!-- Particle background container -->
 
     <div class="container">
-        <h1>Caption Craft</h1>
+        <h1>🌟 Caption Craft🌟</h1>
+<p>🔍 Caption Craft empowers visually impaired users by analyzing images and describing them through speech 🎙️ and text 📝, helping them navigate and understand their surroundings better. 🌍💡</p>
+
         
         <!-- Enhanced File Upload -->
         <div class="file-upload">
@@ -27,13 +28,19 @@
         <div id="results">
             <h2>Results</h2>
             <div class="image-results">
+                <!-- Uploaded Image Section -->
                 <div class="image-section">
                     <canvas id="uploadedCanvas"></canvas>
-                    <p id="uploadedCaption" class="caption">Your original image will appear here.</p>
+                    <p id="uploadedCaption" class="caption"></p>
                 </div>
+                
+                <!-- Object Details Section
+                <div id="objectDetails" style="margin-top: 20px; font-size: 16px;"></div> -->
+                
+                <!-- Processed Image Section -->
                 <div class="image-section">
                     <canvas id="processedCanvas"></canvas>
-                    <p id="processedCaption" class="caption">Processed image with detected objects will appear here.</p>
+                    <p id="processedCaption" class="caption"></p>
                 </div>
             </div>
             <button id="downloadButton">Download Image</button>
