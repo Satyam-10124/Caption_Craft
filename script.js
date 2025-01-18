@@ -208,7 +208,7 @@ async function analyzeImage() {
 
     reader.readAsDataURL(file);
 }
-
+loadingSpinner.style.display = "none"; // Stop spinner on error
 /**
  * Text-to-Speech function to speak the detected caption with a soft English voice.
  * @param {string} text - Text to speak.
