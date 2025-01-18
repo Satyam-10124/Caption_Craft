@@ -12,7 +12,7 @@ const downloadButton = document.getElementById("downloadButton");
 
 // API Authentication and Base URLs
 const AUTH_TOKEN = "Bearer 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";
-const apiKey = "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";
+const apiKey = "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";
 const apiBase = "https://api.groq.com/openai/v1";
 
 /**
