@@ -80,7 +80,7 @@ async function getChatbotResponse(message) {
     };
 
     const body = JSON.stringify({
-        model: "llama-3.1-70b-versatile",
+        model: "llama-3.3-70b-versatile",
         messages: [
             { role: "system", content: "Describe the scene given by the user in one statement." },
             { role: "user", content: message },
