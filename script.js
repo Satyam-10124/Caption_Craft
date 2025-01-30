@@ -1,18 +1,37 @@
+import config from './config.js';
+
 // DOM Elements
-const analyzeButton = document.getElementById("analyzeButton");
-const imageInput = document.getElementById("imageInput");
-const uploadNotification = document.getElementById("uploadNotification");
-const loadingSpinner = document.getElementById("loadingSpinner");
-const uploadedCanvas = document.getElementById("uploadedCanvas");
-const processedCanvas = document.getElementById("processedCanvas");
-const uploadedCaption = document.getElementById("uploadedCaption");
-const processedCaption = document.getElementById("processedCaption");
-const objectDetails = document.getElementById("objectDetails");
-const downloadButton = document.getElementById("downloadButton");
+let analyzeButton, imageInput, uploadNotification, loadingSpinner;
+let uploadedCanvas, processedCanvas, uploadedCaption, processedCaption;
+let objectDetails, downloadButton;
+
+// Initialize DOM elements after document loads
+document.addEventListener('DOMContentLoaded', () => {
+    analyzeButton = document.getElementById("analyzeButton");
+    imageInput = document.getElementById("imageInput");
+    uploadNotification = document.getElementById("uploadNotification");
+    loadingSpinner = document.getElementById("loadingSpinner");
+    uploadedCanvas = document.getElementById("uploadedCanvas");
+    processedCanvas = document.getElementById("processedCanvas");
+    uploadedCaption = document.getElementById("uploadedCaption");
+    processedCaption = document.getElementById("processedCaption");
+    objectDetails = document.getElementById("objectDetails");
+    downloadButton = document.getElementById("downloadButton");
+
+    // Add event listeners
+    imageInput.addEventListener("change", () => {
+        uploadNotification.style.display = imageInput.files.length > 0 ? "block" : "none";
+    });
+    
+    analyzeButton.addEventListener("click", analyzeImage);
+    
+    // Initialize particles
+    initializeParticles();
+});
 
 // API Authentication and Base URLs
-const AUTH_TOKEN = "Bearer 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";
-const apiKey = "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";
+const AUTH_TOKEN = `Bearer ${config.HUGGING_FACE_TOKEN}`;
+const apiKey = config.GROQ_API_KEY;
 const apiBase = "https://api.groq.com/openai/v1";
 
 /**
@@ -36,7 +55,7 @@ async function queryHuggingFaceAPI(url, data) {
 /**
  * Add particle effects to the page for a dynamic visual experience.
  */
-document.addEventListener("DOMContentLoaded", () => {
+function initializeParticles() {
     const particlesContainer = document.createElement("div");
     particlesContainer.className = "particles";
     document.body.appendChild(particlesContainer);
@@ -51,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         particle.style.height = particle.style.width; // Ensure particle is a circle
         particlesContainer.appendChild(particle);
     }
-});
+}
 
 /**
  * Generate a random color in HSL format.
@@ -59,13 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function getRandomColor() {
     return `hsl(${Math.random() * 360}, 70%, 60%)`;
 }
-
-/**
- * Event listener for image upload, displaying notification.
- */
-imageInput.addEventListener("change", () => {
-    uploadNotification.style.display = imageInput.files.length > 0 ? "block" : "none";
-});
 
 /**
  * Call the chatbot API to process a message.
@@ -208,7 +220,7 @@ async function analyzeImage() {
 
     reader.readAsDataURL(file);
 }
-loadingSpinner.style.display = "none"; // Stop spinner on error
+
 /**
  * Text-to-Speech function to speak the detected caption with a soft English voice.
  * @param {string} text - Text to speak.
@@ -216,21 +228,18 @@ loadingSpinner.style.display = "none"; // Stop spinner on error
 function speakCaption(text) {
     const synth = window.speechSynthesis;
     const voices = synth.getVoices();
-    
+
     // Find an English voice (regardless of country)
     const englishVoice = voices.find((voice) => voice.lang.startsWith("en"));
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en"; // English language
     utterance.voice = englishVoice || voices[0]; // Default to the first available voice if no English voice is found
-    
+
     // Adjust voice characteristics for a soft voice
     utterance.volume = 0.9; // Lower the volume slightly for a softer sound (0 to 1)
     utterance.rate = 0.9; // Reduce the speech rate slightly for a softer, slower delivery (0.1 to 10)
     utterance.pitch = 0.8; // Lower the pitch for a softer, more relaxed tone (0 to 2)
-    
+
     synth.speak(utterance);
 }
-
-// Attach event listener to the analyze button
-analyzeButton.addEventListener("click", analyzeImage);
